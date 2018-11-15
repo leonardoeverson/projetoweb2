@@ -4,23 +4,21 @@
  * and open the template in the editor.
  */
 package projeto;
-import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.util.List;
+import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author leonardo
  */
-@Entity
-public class Vendas implements Serializable {
+@ManagedBean(name = "Vendas")
+public class itensVenda{
     
-    @Id
     private int idUsuario;
-    
     private int vlTotal;
     private Date dtVenda;
+    private List<itensVenda> itensVenda__;
     
     public int getIdUsuario() {
         return idUsuario;
@@ -44,6 +42,10 @@ public class Vendas implements Serializable {
 
     public void setDtVenda(Date dtVenda) {
         this.dtVenda = dtVenda;
+    }
+    
+    public void getVendas(){
+        vendasDAO vendas = new vendasDAO();
     }
 }
 
