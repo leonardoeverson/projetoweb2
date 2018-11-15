@@ -7,14 +7,18 @@ package projeto;
 import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author leonardo
  */
-@ManagedBean(name = "Vendas")
+@ManagedBean(name = "itensVenda")
+@Entity
 public class itensVenda{
     
+    @Id
     private int idUsuario;
     private int vlTotal;
     private Date dtVenda;

@@ -5,10 +5,19 @@
  */
 package projeto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author Leonardo
  */
-public class cadastroVenda {
-    
+
+@Entity
+public class Venda {
+  
+    @Id
+    private int idUsuario;
+    private int vlTotal;
+    private String dtVenda;
 }
