@@ -15,7 +15,7 @@ import javax.persistence.Id;
  *
  * @author leonardo
  */
-@ManagedBean(name = "itensVenda")
+@ManagedBean(name = "itensVendaMB")
 @Entity
 public class itensVendaManagedBean{
     
