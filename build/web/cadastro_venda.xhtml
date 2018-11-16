@@ -28,14 +28,14 @@
                     <label for="exampleInputEmail1">Adicionar Produto</label>              
                 </div>
  
-                <c:if test="${not empty produtoMB.produtos}">
+                
                     <h:dataTable value="#{produtoMB.produtos}" var="p">
                         <h:column>#{p.id}</h:column>
                         <h:column>#{p.nmProduto}</h:column>
                         <h:column>#{p.vlProduto}</h:column>
                         <h:column>#{p.dtCadastro}</h:column>
                     </h:dataTable>
-                </c:if>
+              
                 
                 <div><h:commandButton value="Inserir" class="btn btn-primary" /></div>
                 <div><h:commandLink value="Finaliza Venda" /></div>

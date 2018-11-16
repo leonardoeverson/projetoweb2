@@ -7,6 +7,9 @@
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/entidades/Produto.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/dao/DAO.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/web/cadastro_venda.xhtml</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/dao/ProdutoDAO.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/util/HibernateUtil.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/hibernate.cfg.xml</file>
         </group>
     </open-files>
 </project-private>

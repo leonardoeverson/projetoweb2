@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 /**
@@ -44,16 +45,14 @@ public class ProdutoManagedBean {
         this.produtos = produtos;
     }
     
-    public String obterTodos(){
-        ProdutoDAO produtoDAO = new ProdutoDAO();
-        
+    public void obterTodos(){
+        ProdutoDAO produtoDAO = new ProdutoDAO();        
         try {
             produtos = produtoDAO.obterTodos();
+            System.out.println(produtos);
         } catch (Exception ex) {
             setMensagem("Erro ao obter o(s) produtos(s)");
-            return "fracasso";
         }
-        return "sucesso";
     }
    
 }
