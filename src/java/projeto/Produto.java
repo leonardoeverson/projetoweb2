@@ -19,14 +19,11 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name = "produto")
 @SessionScoped
 public class Produto {
-    
     private List<Produto> produtos;
+       
     /**
      * Creates a new instance of Produto
      */
-    public Produto() {
-    }
-    
     
     public List<Produto> getProdutos(){
         ProdutoDAO produtoDAO = new ProdutoDAO();
@@ -37,7 +34,11 @@ public class Produto {
             Logger.getLogger(Produto.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return null;
+        return "sucesso";
+    }
+    
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
     
 }

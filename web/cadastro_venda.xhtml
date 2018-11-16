@@ -27,11 +27,11 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Adicionar Produto</label>              
                 </div>
-                <h:dataTable value="#{produto.getProdutos}" var="o">
-                    <h:column>#{o.id}</h:column>
-                    <h:column>#{o.nmProduto}</h:column>
-                    <h:column>#{o.vlProduto}</h:column>
-                    <h:column>#{o.dtCadastro}</h:column>
+                <h:dataTable value="#{produto.produtos}" var="p">
+                    <h:column>#{p.id}</h:column>
+                    <h:column>#{p.nmProduto}</h:column>
+                    <h:column>#{p.vlProduto}</h:column>
+                    <h:column>#{p.dtCadastro}</h:column>
                 </h:dataTable>
 
                 
