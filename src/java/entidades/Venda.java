@@ -6,6 +6,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,10 @@ public class Venda implements Serializable {
     
     @Column(nullable = false)
     private String vlTotal;
-
+    
+    @Column(nullable = false)
+    private Timestamp dtVenda;
+    
     public String getVlTotal() {
         return vlTotal;
     }

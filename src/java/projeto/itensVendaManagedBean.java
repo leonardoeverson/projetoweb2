@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package projeto;
-import dao.vendasDAO;
+import dao.itensVendaDAO;
 import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;

@@ -5,16 +5,15 @@
  */
 package dao;
 
-import dao.DAO;
 import entidades.itensVenda;
-
 
 /**
  *
- * @author Leonardo
+ * @author leonardo
  */
-public class VendasDAO extends DAO<itensVenda>{
-    VendasDAO(){
+public class itensVendaDAO extends DAO<itensVenda>{
+    
+    public itensVendaDAO(){
         super(itensVenda.class);
     }
 }
