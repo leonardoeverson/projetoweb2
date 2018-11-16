@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projeto;
+import dao.vendasDAO;
 import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -16,13 +17,13 @@ import javax.persistence.Id;
  */
 @ManagedBean(name = "itensVenda")
 @Entity
-public class itensVenda{
+public class itensVendaManagedBean{
     
     @Id
     private int idUsuario;
     private int vlTotal;
     private Date dtVenda;
-    private List<itensVenda> itensVenda__;
+    private List<itensVendaManagedBean> itensVenda__;
     
     public int getIdUsuario() {
         return idUsuario;
@@ -48,8 +49,5 @@ public class itensVenda{
         this.dtVenda = dtVenda;
     }
     
-    public void getVendas(){
-        vendasDAO vendas = new vendasDAO();
-    }
 }
 

@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projeto;
+package entidades;
 
 /**
  *
- * @author Leonardo
+ * @author leonardo
  */
-public class vendasDAO extends DAO<itensVenda>{
-    vendasDAO(){
-        super(itensVenda.class);
-    }
+public class itensVenda {
+    
 }
