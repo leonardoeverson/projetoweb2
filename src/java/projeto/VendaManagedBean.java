@@ -14,7 +14,7 @@ import javax.persistence.Id;
  */
 
 @Entity
-public class Venda {
+public class VendaManagedBean {
   
     @Id
     private int idUsuario;

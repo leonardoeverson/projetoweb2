@@ -21,7 +21,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name = "produtoMB")
 @SessionScoped
 public class ProdutoManagedBean {
-    private List<Produto> produtos;
+    public List<Produto> produtos;
 
     public String getMensagem() {
         return mensagem;
@@ -35,11 +35,12 @@ public class ProdutoManagedBean {
      * Creates a new instance of Produto
      */
     
-    private List<Produto> getProdutos(){
+    public List<Produto> getProdutos(){
+        obterTodos();
         return produtos;
     }
     
-    private void setProdutos(List<Produto> produtos) {
+    public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
     }
     
@@ -49,7 +50,7 @@ public class ProdutoManagedBean {
         try {
             produtos = produtoDAO.obterTodos();
         } catch (Exception ex) {
-            setMensagem("Erro ao obter o(s) usuário(s)");
+            setMensagem("Erro ao obter o(s) produtos(s)");
             return "fracasso";
         }
         return "sucesso";

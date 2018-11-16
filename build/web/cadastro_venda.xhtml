@@ -27,6 +27,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Adicionar Produto</label>              
                 </div>
+ 
                 <c:if test="${not empty produtoMB.produtos}">
                     <h:dataTable value="#{produtoMB.produtos}" var="p">
                         <h:column>#{p.id}</h:column>
