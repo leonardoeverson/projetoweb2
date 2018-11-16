@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Cadastro de Venda</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            </div>
+        </nav>
+        
+        <div class="container">
+            <h1>Cadastro de Venda</h1>
+            <h:form>
+                
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Adicionar Produto</label>              
+                </div>
+                <h:dataTable value="#{produto.getProdutos}" var="o">
+                    <h:column>#{o.id}</h:column>
+                    <h:column>#{o.nmProduto}</h:column>
+                    <h:column>#{o.vlProduto}</h:column>
+                    <h:column>#{o.dtCadastro}</h:column>
+                </h:dataTable>
+
+                
+                <div><h:commandButton value="Inserir" class="btn btn-primary" /></div>
+                <div><h:commandLink value="Finaliza Venda" /></div>
+                <div><a href="../faces/index.xhtml">Página Inicial</a></div>
+            </h:form>
+        </div>
+    </h:body>
+</html>

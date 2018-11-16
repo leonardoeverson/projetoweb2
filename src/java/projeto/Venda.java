@@ -20,4 +20,5 @@ public class Venda {
     private int idUsuario;
     private int vlTotal;
     private String dtVenda;
+    
 }
