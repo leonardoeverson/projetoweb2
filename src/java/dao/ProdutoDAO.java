@@ -13,7 +13,7 @@ import entidades.Produto;
  * @author leonardo
  */
 public class ProdutoDAO extends DAO<Produto> {
-    ProdutoDAO(){
+    public ProdutoDAO(){
         super(Produto.class);
     }
 }

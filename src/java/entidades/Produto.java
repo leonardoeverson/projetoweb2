@@ -11,11 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/**
- *
- * @author leonardo
- */
-
 @Entity
 public class Produto implements Serializable{
     

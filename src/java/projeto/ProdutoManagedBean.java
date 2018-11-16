@@ -6,6 +6,7 @@
 package projeto;
 
 import dao.ProdutoDAO;
+import entidades.Produto;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +21,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name = "produtoMB")
 @SessionScoped
 public class ProdutoManagedBean {
-    private List<ProdutoManagedBean> produtos;
+    private List<Produto> produtos;
 
     public String getMensagem() {
         return mensagem;
@@ -34,27 +35,24 @@ public class ProdutoManagedBean {
      * Creates a new instance of Produto
      */
     
-    private List<ProdutoManagedBean> getProdutos(){
+    private List<Produto> getProdutos(){
         return produtos;
     }
     
-    private void setProdutos(List<ProdutoManagedBean> produtos) {
+    private void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
     }
     
-    private String obterTodos(){
-        
+    public String obterTodos(){
         ProdutoDAO produtoDAO = new ProdutoDAO();
         
         try {
             produtos = produtoDAO.obterTodos();
         } catch (Exception ex) {
-            Logger.getLogger(ProdutoManagedBean.class.getName()).log(Level.SEVERE, null, ex);
-            setMensagem("Erro ao obter o(s) produtos(s)");
+            setMensagem("Erro ao obter o(s) usuário(s)");
             return "fracasso";
         }
-        
-       return "sucesso";
+        return "sucesso";
     }
-    
+   
 }

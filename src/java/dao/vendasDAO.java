@@ -6,14 +6,15 @@
 package dao;
 
 import dao.DAO;
-import projeto.itensVendaManagedBean;
+import entidades.itensVenda;
+
 
 /**
  *
  * @author Leonardo
  */
-public class vendasDAO extends DAO<itensVendaManagedBean>{
+public class vendasDAO extends DAO<itensVenda>{
     vendasDAO(){
-        super(itensVendaManagedBean.class);
+        super(itensVenda.class);
     }
 }
