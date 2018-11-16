@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Cadastro de Venda</title>
 
@@ -19,25 +20,36 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             </div>
         </nav>
-        
+
         <div class="container">
             <h1>Cadastro de Venda</h1>
             <h:form>
-                
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Adicionar Produto</label>              
-                </div>
- 
-                
-                    <h:dataTable value="#{produtoMB.produtos}" var="p">
-                        <h:column>#{p.id}</h:column>
-                        <h:column>#{p.nmProduto}</h:column>
-                        <h:column>#{p.vlProduto}</h:column>
-                        <h:column>#{p.dtCadastro}</h:column>
-                    </h:dataTable>
-              
-                
-                <div><h:commandButton value="Inserir" class="btn btn-primary" /></div>
+
+                <h:dataTable value="#{produtoMB.produtos}" class="table" var="p">
+                    <h:column>
+                        <f:facet name = "header">Id</f:facet>  
+                        #{p.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name = "header">Produto</f:facet>  
+                        #{p.nmProduto}
+                    </h:column>
+                    <h:column>
+                        <f:facet name = "header">Valor</f:facet>  
+                        #{p.vlProduto}
+                    </h:column>
+                    <h:column>
+                        <f:facet name = "header">Data de Cadastro</f:facet>  
+                        #{p.dtCadastro}
+                    </h:column>
+                        <h:column>
+                             <f:facet name = "header">Adicionar</f:facet>  
+                            <h:selectBooleanCheckbox/>
+                        </h:column>
+                </h:dataTable>
+
+
+                <div><h:commandButton value="Comprar" class="btn btn-primary" /></div>
                 <div><h:commandLink value="Finaliza Venda" /></div>
                 <div><a href="../faces/index.xhtml">Página Inicial</a></div>
             </h:form>

@@ -34,7 +34,6 @@ public class ProdutoManagedBean {
      */
     
     public List<Produto> getProdutos(){
-        obterTodos();
         return produtos;
     }
     
@@ -42,14 +41,17 @@ public class ProdutoManagedBean {
         this.produtos = produtos;
     }
     
-    public void obterTodos(){
+    public String obterTodos(){
         ProdutoDAO produtoDAO = new ProdutoDAO();        
         try {
             produtos = produtoDAO.obterTodos();
             System.out.println(produtos);
         } catch (Exception ex) {
             setMensagem("Erro ao obter o(s) produtos(s)");
+            return "fracasso";
         }
+        
+        return "sucesso";
     }
    
 }
