@@ -6,6 +6,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +24,17 @@ public class Produto implements Serializable{
     
     @Column(nullable = false)
     private String vlProduto;
+    
+    @Column(nullable = false)
+    private Timestamp dtCadastro;
+
+    public String getDtCadastro() {
+        return dtCadastro.toString();
+    }
+    
+    public int getId() {
+        return id;
+    }
     
     //private String nmProduto;
     public String getNmProduto() {
