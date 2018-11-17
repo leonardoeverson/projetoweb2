@@ -12,12 +12,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
 /**
  *
  * @author leonardo
  */
-
 @Entity
 public class Venda implements Serializable {
     
@@ -34,24 +32,20 @@ public class Venda implements Serializable {
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    
     public Timestamp getDtVenda() {
         return dtVenda;
     }
 
-    public void setDtVenda(Timestamp dtVenda) {
-        this.dtVenda = Timestamp.from(Instant.now());
+    public void setDtVenda(Timestamp tempo) {
+        this.dtVenda = tempo;
     }
     
     public Double getVlTotal() {
         return vlTotal;
     }
 
-    public void setVlTotal(Double vlTotal) {
+    public void setVlTotal(double vlTotal) {
         this.vlTotal = vlTotal;
     }
     

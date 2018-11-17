@@ -22,8 +22,13 @@
         </nav>
 
         <div class="container">
+            <div><a href="../faces/index.xhtml">Página Inicial</a></div>
             <h1>Produtos</h1>
-            
+            <c:if test="${not empty vendaMB.mensagem}">
+                <div class="alert alert-danger" role="alert">
+                    #{vendaMB.mensagem}
+                </div>
+            </c:if>
             <h:form>
                 <h:dataTable value="#{produtoMB.produtos}" class="table" var="p">
                     <h:column>
@@ -47,8 +52,6 @@
                              <h:commandLink value="Selecionar" action="#{vendaMB.adiciona_item_carrinho(p)}" />
                         </h:column>
                 </h:dataTable>
-               
-                <div><a href="../faces/index.xhtml">Página Inicial</a></div>
             </h:form>
             <hr/>
             <h1>Carrinho</h1>
@@ -75,7 +78,11 @@
                              <h:commandLink value="Remover" action="#{vendaMB.remove_item_carrinho(v.id)}" />
                         </h:column>
                 </h:dataTable>
-                <div><h:commandButton value="Comprar" class="btn btn-primary" /></div>
+                <div><h:commandButton value="Comprar" class="btn btn-primary" action="#{vendaMB.finaliza_compra()}"/></div>
+            </h:form>
+            <h:form style="margin-top:30px">
+                <label>Total</label>
+                <h:inputText class="form-control" style="width:90px" readonly="" value="#{vendaMB.getTotal()}"></h:inputText>
             </h:form>
         </div>
     </h:body>
