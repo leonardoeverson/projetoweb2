@@ -7,10 +7,10 @@ package entidades;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.time.Instant;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 /**
  *
@@ -20,11 +20,11 @@ import javax.persistence.Id;
 public class Venda implements Serializable {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     
     @Column(nullable = false)
-    private Double vlTotal;
+    private double vlTotal;
     
     @Column(nullable = false)
     private Timestamp dtVenda;
@@ -41,7 +41,7 @@ public class Venda implements Serializable {
         this.dtVenda = tempo;
     }
     
-    public Double getVlTotal() {
+    public double getVlTotal() {
         return vlTotal;
     }
 

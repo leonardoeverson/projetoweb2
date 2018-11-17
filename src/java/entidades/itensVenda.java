@@ -8,6 +8,7 @@ package entidades;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -18,7 +19,7 @@ import javax.persistence.Id;
 public class itensVenda {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
     @Column(nullable = false)
@@ -28,7 +29,7 @@ public class itensVenda {
     private int idProduto;
     
     @Column(nullable = false)
-    private Double vlVendaProduto;
+    private double vlVendaProduto;
 
     public int getId() {
         return id;
@@ -50,11 +51,11 @@ public class itensVenda {
         this.idProduto = idProduto;
     }
 
-    public Double getVlVendaProduto() {
+    public double getVlVendaProduto() {
         return vlVendaProduto;
     }
 
-    public void setVlVendaProduto(Double vlVendaProduto) {
+    public void setVlVendaProduto(double vlVendaProduto) {
         this.vlVendaProduto = vlVendaProduto;
     }
     

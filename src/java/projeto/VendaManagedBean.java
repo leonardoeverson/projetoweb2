@@ -30,7 +30,7 @@ public class VendaManagedBean {
     private int vlTotal;
     private String dtVenda;
     public String mensagem;
-    public Double total = (double)0;
+    public double total = 0;
     public List<Produto> carrinho = new ArrayList<Produto>();
     //private static final long serialVersionUID = 1L;
     
@@ -75,7 +75,7 @@ public class VendaManagedBean {
         this.dtVenda = dtVenda;
     }
 
-    public Double getTotal() {
+    public double getTotal() {
         return total;
     }
     
@@ -120,9 +120,10 @@ public class VendaManagedBean {
         Venda venda = new Venda();
         venda.setDtVenda(Timestamp.from(Instant.now()));
         venda.setVlTotal(total);
+        
         VendasDAO vendasDAO = new VendasDAO();
         
-        itensVendaDAO itensvendaDAO = new itensVendaDAO();
+        itensVendaDAO itensDAO = new itensVendaDAO();
         
         try {
             vendasDAO.inserir(venda);
@@ -136,9 +137,11 @@ public class VendaManagedBean {
                 itensVenda itensvenda = new itensVenda();
                 itensvenda.setIdProduto(p.getId());
                 itensvenda.setIdVenda(venda.getId());
-                vendasDAO.inserir(venda);
+                itensvenda.setVlVendaProduto(p.getVlProduto());
+                itensDAO.inserir(itensvenda);
             } catch (Exception ex) {
                 setMensagem("Erro ao cadastrar os itens da venda:"+ex);
+                carrinho = null;
                 return "fracasso";
             }
             setMensagem("Venda feita com sucesso");
