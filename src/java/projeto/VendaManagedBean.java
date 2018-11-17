@@ -5,9 +5,13 @@
  */
 package projeto;
 
+import dao.VendasDAO;
+import dao.itensVendaDAO;
 import entidades.Produto;
 import entidades.Venda;
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -29,6 +33,7 @@ public class VendaManagedBean {
     private int vlTotal;
     private String dtVenda;
     public String mensagem;
+    public Double total;
     public List<Produto> carrinho = new ArrayList<Produto>();
     //private static final long serialVersionUID = 1L;
     
@@ -81,6 +86,7 @@ public class VendaManagedBean {
             }
         }
         
+        calcula_total();
         carrinho.add(e);
     }
     
@@ -89,8 +95,46 @@ public class VendaManagedBean {
         for(Produto p : carrinho){
             if(p.getId() == id){
                 carrinho.remove(carrinho.indexOf(p));
+                calcula_total();
                 return;
             }
         }
+    }
+    
+    private void calcula_total(){
+        
+    }
+    
+    
+    public String finaliza_compra(){
+        
+        Venda venda = new Venda();
+        venda.setDtVenda(Timestamp.from(Instant.now()));
+        venda.setVlTotal(total);
+        
+        VendasDAO vendasDAO = new VendasDAO();
+        itensVendaDAO itensvendaDAO = new itensVendaDAO();
+        
+        try {
+            vendasDAO.inserir(venda);
+        } catch (Exception ex) {
+            setMensagem("Erro ao inserir o usuário");
+            
+        }
+        setMensagem("Usuário inserido com sucesso");
+        //return "sucesso";
+        
+        for(int i = 0; i < carrinho.size();i++){
+            try {
+                vendasDAO.inserir(venda);
+            } catch (Exception ex) {
+                setMensagem("Erro ao inserir o usuário");
+
+            }
+            setMensagem("Usuário inserido com sucesso");
+            
+        }
+        
+        return "sucesso";
     }
 }

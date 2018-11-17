@@ -7,6 +7,7 @@ package entidades;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.time.Instant;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,16 +26,32 @@ public class Venda implements Serializable {
     private int id;
     
     @Column(nullable = false)
-    private String vlTotal;
+    private Double vlTotal;
     
     @Column(nullable = false)
     private Timestamp dtVenda;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Timestamp getDtVenda() {
+        return dtVenda;
+    }
+
+    public void setDtVenda(Timestamp dtVenda) {
+        this.dtVenda = Timestamp.from(Instant.now());
+    }
     
-    public String getVlTotal() {
+    public Double getVlTotal() {
         return vlTotal;
     }
 
-    public void setVlTotal(String vlTotal) {
+    public void setVlTotal(Double vlTotal) {
         this.vlTotal = vlTotal;
     }
     
