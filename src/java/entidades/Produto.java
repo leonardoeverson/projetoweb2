@@ -23,7 +23,7 @@ public class Produto implements Serializable{
     private String nmProduto;
     
     @Column(nullable = false)
-    private String vlProduto;
+    private double vlProduto;
     
     @Column(nullable = false)
     private Timestamp dtCadastro;
@@ -54,11 +54,11 @@ public class Produto implements Serializable{
         this.nmProduto = nmProduto;
     }
 
-    public String getVlProduto() {
+    public double getVlProduto() {
         return vlProduto;
     }
 
-    public void setVlProduto(String vlProduto) {
+    public void setVlProduto(double vlProduto) {
         this.vlProduto = vlProduto;
     }
        

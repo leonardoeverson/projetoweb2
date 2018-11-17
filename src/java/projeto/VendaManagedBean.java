@@ -87,7 +87,7 @@ public class VendaManagedBean {
             }
         }
         
-        calcula_total("somar", Integer.parseInt(e.getVlProduto()));
+        calcula_total("somar", e.getVlProduto());
         carrinho.add(e);
     }
     
@@ -95,14 +95,14 @@ public class VendaManagedBean {
     public void remove_item_carrinho(int id){
         for(Produto p : carrinho){
             if(p.getId() == id){
-                calcula_total("subtrair",Integer.parseInt(p.getVlProduto()));
+                calcula_total("subtrair",p.getVlProduto());
                 carrinho.remove(carrinho.indexOf(p));
                 return;
             }
         }
     }
     
-    private void calcula_total(String op, int valor){
+    private void calcula_total(String op, double valor){
      
         if(op.equals("somar")){
             total += valor;
@@ -137,7 +137,7 @@ public class VendaManagedBean {
                 itensVenda itensvenda = new itensVenda();
                 itensvenda.setIdProduto(p.getId());
                 itensvenda.setIdVenda(venda.getId());
-                itensvenda.setVlVendaProduto(p.getVlProduto());
+                itensvenda.setVlVendaProduto((double)p.getVlProduto());
                 itensDAO.inserir(itensvenda);
             } catch (Exception ex) {
                 setMensagem("Erro ao cadastrar os itens da venda:"+ex);
