@@ -5,10 +5,13 @@
  */
 package projeto;
 
+import entidades.Produto;
 import entidades.Venda;
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.html.HtmlDataTable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -24,9 +27,27 @@ public class VendaManagedBean {
     private int idUsuario;
     private int vlTotal;
     private String dtVenda;
-    
-    public List<Venda> carrinho_compras;
+    public List<Venda> carrinho_vendas;
+    public List<Produto> produtos;
+    public HtmlDataTable htmldatatable;
+    private static final long serialVersionUID = 1L;
+   
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
 
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+    
+    public HtmlDataTable getHtmldatatable() {
+        return htmldatatable;
+    }
+
+    public void setHtmldatatable(HtmlDataTable htmldatatable) {
+        this.htmldatatable = htmldatatable;
+    }
+    
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -51,7 +72,8 @@ public class VendaManagedBean {
         this.dtVenda = dtVenda;
     }
     
-    public void adiciona_carrinho(){
-        
+    public void adiciona_carrinho(Produto p){
+    
     }
+    
 }

@@ -20,7 +20,9 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class ProdutoManagedBean {
     public List<Produto> produtos;
-
+    private String mensagem;   
+    private boolean selected;
+    
     public String getMensagem() {
         return mensagem;
     }
@@ -28,11 +30,7 @@ public class ProdutoManagedBean {
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
     }
-    private String mensagem;   
-    /**
-     * Creates a new instance of Produto
-     */
-    
+   
     public List<Produto> getProdutos(){
         return produtos;
     }

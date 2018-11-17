@@ -25,30 +25,29 @@
             <h1>Produtos</h1>
             
             <h:form>
-                <h:dataTable value="#{produtoMB.produtos}" class="table" var="p">
+                <h:dataTable value="#{produtoMB.produtos}" binding="#{vendaMB.htmldatatable}" class="table" var="p">
                     <h:column>
-                        <f:facet name="id">Id</f:facet>  
+                        <f:facet name="header">Id</f:facet>  
                         #{p.id}
                     </h:column>
                     <h:column>
-                        <f:facet name="nmProduto">Produto</f:facet>  
+                        <f:facet  name="header">Produto</f:facet>  
                         #{p.nmProduto}
                     </h:column>
                     <h:column>
-                        <f:facet name="vlProduto">Valor</f:facet>  
+                        <f:facet  name="header">Valor</f:facet>  
                         #{p.vlProduto}
                     </h:column>
                     <h:column>
-                        <f:facet name="dtCadastro">Data de Cadastro</f:facet>  
+                        <f:facet name="header">Data de Cadastro</f:facet>  
                         #{p.dtCadastro}
                     </h:column>
                         <h:column>
-                             <f:facet name="add_carrinho">Adicionar</f:facet>  
-                            <h:selectBooleanCheckbox/>
+                             <f:facet name="header">Adicionar</f:facet>
+                             <h:commandLink value="Selecionar" action="#{vendaMB.adiciona_carrinho(p)}" />
                         </h:column>
                 </h:dataTable>
-                
-                <div><h:commandLink value="Adicionar ao carrinho" /></div>
+               
                 <div><a href="../faces/index.xhtml">Página Inicial</a></div>
             </h:form>
             <hr/>
