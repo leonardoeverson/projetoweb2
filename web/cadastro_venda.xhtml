@@ -25,7 +25,7 @@
             <h1>Produtos</h1>
             
             <h:form>
-                <h:dataTable value="#{produtoMB.produtos}" binding="#{vendaMB.htmldatatable}" class="table" var="p">
+                <h:dataTable value="#{produtoMB.produtos}" class="table" var="p">
                     <h:column>
                         <f:facet name="header">Id</f:facet>  
                         #{p.id}

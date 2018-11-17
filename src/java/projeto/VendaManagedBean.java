@@ -8,6 +8,7 @@ package projeto;
 import entidades.Produto;
 import entidades.Venda;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -27,10 +28,19 @@ public class VendaManagedBean {
     private int idUsuario;
     private int vlTotal;
     private String dtVenda;
-    public List<Venda> carrinho_vendas;
-    public List<Produto> produtos;
-    public HtmlDataTable htmldatatable;
-    private static final long serialVersionUID = 1L;
+    public String mensagem;
+    public List<Produto> produtos = new ArrayList<Produto>();
+    //private static final long serialVersionUID = 1L;
+    
+    
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+    
    
     public List<Produto> getProdutos() {
         return produtos;
@@ -40,13 +50,6 @@ public class VendaManagedBean {
         this.produtos = produtos;
     }
     
-    public HtmlDataTable getHtmldatatable() {
-        return htmldatatable;
-    }
-
-    public void setHtmldatatable(HtmlDataTable htmldatatable) {
-        this.htmldatatable = htmldatatable;
-    }
     
     public int getIdUsuario() {
         return idUsuario;
@@ -72,8 +75,15 @@ public class VendaManagedBean {
         this.dtVenda = dtVenda;
     }
     
-    public void adiciona_carrinho(Produto p){
-    
+    public void adiciona_carrinho(Produto e){
+        for(Produto p : produtos){
+            if(p.getId() == e.getId()){
+                setMensagem("O produto já está em sua cesta de compras");
+                return;
+            }
+        }
+        
+        produtos.add(e);
     }
     
 }
