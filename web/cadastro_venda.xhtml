@@ -44,7 +44,7 @@
                     </h:column>
                         <h:column>
                              <f:facet name="header">Adicionar</f:facet>
-                             <h:commandLink value="Selecionar" action="#{vendaMB.adiciona_carrinho(p)}" />
+                             <h:commandLink value="Selecionar" action="#{vendaMB.adiciona_item_carrinho(p)}" />
                         </h:column>
                 </h:dataTable>
                
@@ -53,6 +53,28 @@
             <hr/>
             <h1>Carrinho</h1>
             <h:form>
+                <h:dataTable value="#{vendaMB.carrinho}" class="table" var="v">
+                    <h:column>
+                        <f:facet name="header">Id</f:facet>  
+                        #{v.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet  name="header">Produto</f:facet>  
+                        #{v.nmProduto}
+                    </h:column>
+                    <h:column>
+                        <f:facet  name="header">Valor</f:facet>  
+                        #{v.vlProduto}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Data de Cadastro</f:facet>  
+                        #{v.dtCadastro}
+                    </h:column>
+                        <h:column>
+                             <f:facet name="header">Remover</f:facet>
+                             <h:commandLink value="Remover" action="#{vendaMB.remove_item_carrinho(v.id)}" />
+                        </h:column>
+                </h:dataTable>
                 <div><h:commandButton value="Comprar" class="btn btn-primary" /></div>
             </h:form>
         </div>

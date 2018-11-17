@@ -29,7 +29,7 @@ public class VendaManagedBean {
     private int vlTotal;
     private String dtVenda;
     public String mensagem;
-    public List<Produto> produtos = new ArrayList<Produto>();
+    public List<Produto> carrinho = new ArrayList<Produto>();
     //private static final long serialVersionUID = 1L;
     
     
@@ -37,20 +37,18 @@ public class VendaManagedBean {
         return mensagem;
     }
 
+    public List<Produto> getCarrinho() {
+        return carrinho;
+    }
+
+    public void setCarrinho(List<Produto> carrinho) {
+        this.carrinho = carrinho;
+    }
+
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
     }
-    
-   
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
-    
-    
+     
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -75,15 +73,24 @@ public class VendaManagedBean {
         this.dtVenda = dtVenda;
     }
     
-    public void adiciona_carrinho(Produto e){
-        for(Produto p : produtos){
+    public void adiciona_item_carrinho(Produto e){
+        for(Produto p : carrinho){
             if(p.getId() == e.getId()){
                 setMensagem("O produto já está em sua cesta de compras");
                 return;
             }
         }
         
-        produtos.add(e);
+        carrinho.add(e);
     }
     
+    
+    public void remove_item_carrinho(int id){
+        for(Produto p : carrinho){
+            if(p.getId() == id){
+                carrinho.remove(carrinho.indexOf(p));
+                return;
+            }
+        }
+    }
 }
