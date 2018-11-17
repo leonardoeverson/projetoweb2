@@ -85,8 +85,8 @@ public class DAO<E> {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            System.out.println(classePersistente.getName());
-            resultado = session.createQuery("from Produto").list();
+            //System.out.println(classePersistente.getName());
+            resultado = session.createQuery("from "+ classePersistente.getName()).list();
             tx.commit();
         } catch (Exception ex) {
             System.out.println(ex);
