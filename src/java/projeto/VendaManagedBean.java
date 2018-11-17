@@ -5,6 +5,10 @@
  */
 package projeto;
 
+import entidades.Venda;
+import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -13,12 +17,41 @@ import javax.persistence.Id;
  * @author Leonardo
  */
 
-@Entity
+@ManagedBean(name = "vendaMB")
+@SessionScoped
 public class VendaManagedBean {
   
-    @Id
     private int idUsuario;
     private int vlTotal;
     private String dtVenda;
     
+    public List<Venda> carrinho_compras;
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public int getVlTotal() {
+        return vlTotal;
+    }
+
+    public void setVlTotal(int vlTotal) {
+        this.vlTotal = vlTotal;
+    }
+
+    public String getDtVenda() {
+        return dtVenda;
+    }
+
+    public void setDtVenda(String dtVenda) {
+        this.dtVenda = dtVenda;
+    }
+    
+    public void adiciona_carrinho(){
+        
+    }
 }

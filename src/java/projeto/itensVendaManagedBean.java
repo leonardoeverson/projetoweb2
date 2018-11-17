@@ -5,25 +5,24 @@
  */
 package projeto;
 import dao.itensVendaDAO;
+import entidades.itensVenda;
 import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author leonardo
  */
 @ManagedBean(name = "itensVendaMB")
-@Entity
+@SessionScoped
 public class itensVendaManagedBean{
     
-    @Id
     private int idUsuario;
     private int vlTotal;
     private Date dtVenda;
-    private List<itensVendaManagedBean> itensVenda__;
+    private List<itensVenda> itensVenda__;
     
     public int getIdUsuario() {
         return idUsuario;
