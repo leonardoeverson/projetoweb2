@@ -43,7 +43,6 @@ public class ProdutoManagedBean {
         ProdutoDAO produtoDAO = new ProdutoDAO();        
         try {
             produtos = produtoDAO.obterTodos();
-            System.out.println(produtos);
         } catch (Exception ex) {
             setMensagem("Erro ao obter o(s) produtos(s)");
             return "fracasso";

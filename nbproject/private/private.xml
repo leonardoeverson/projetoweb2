@@ -6,14 +6,15 @@
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/entidades/itensVenda.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/projeto/VendaManagedBean.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/entidades/Venda.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/projeto/ProdutoManagedBean.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/entidades/Produto.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/dao/DAO.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/web/cadastro_venda.xhtml</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/dao/ProdutoDAO.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/web/itens_venda.xhtml</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/dao/VendasDAO.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/web/index.xhtml</file>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/util/HibernateUtil.java</file>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/web/WEB-INF/faces-config.xml</file>
         </group>
     </open-files>
 </project-private>

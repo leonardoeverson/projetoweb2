@@ -32,8 +32,10 @@ public class VendaManagedBean {
     public String mensagem;
     public double total = 0;
     public List<Produto> carrinho = new ArrayList<Produto>();
-    //private static final long serialVersionUID = 1L;
     
+    public VendaManagedBean(){
+        carrinho = new ArrayList<Produto>();
+    }
     
     public String getMensagem() {
         return mensagem;
@@ -140,13 +142,15 @@ public class VendaManagedBean {
                 itensvenda.setVlVendaProduto((double)p.getVlProduto());
                 itensDAO.inserir(itensvenda);
             } catch (Exception ex) {
+                carrinho = new ArrayList<Produto>();
                 setMensagem("Erro ao cadastrar os itens da venda:"+ex);
-                carrinho = null;
                 return "fracasso";
             }
-            setMensagem("Venda feita com sucesso");
+            
         }
         
+        carrinho = new ArrayList<Produto>();
+        setMensagem("Venda feita com sucesso");
         return "sucesso";
     }
 }
