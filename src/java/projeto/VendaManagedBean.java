@@ -14,6 +14,8 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -152,5 +154,19 @@ public class VendaManagedBean {
         carrinho = new ArrayList<Produto>();
         setMensagem("Venda feita com sucesso");
         return "sucesso";
+    }
+    
+    public List getVendas(){
+        
+        VendasDAO vendasDAO = new VendasDAO();       
+        List<Venda> vendas = new ArrayList<Venda>();
+        
+        try {
+            vendas = vendasDAO.obterTodos();
+        } catch (Exception ex) {
+            Logger.getLogger(VendaManagedBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+        return vendas;
     }
 }
