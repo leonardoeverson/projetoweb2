@@ -23,6 +23,10 @@ public class ProdutoManagedBean {
     private String mensagem;   
     private boolean selected;
     
+    public ProdutoManagedBean(){
+        obterTodos();
+    }
+    
     public String getMensagem() {
         return mensagem;
     }
