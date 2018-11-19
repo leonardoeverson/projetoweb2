@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <head>
         <title>Vendas</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -22,8 +23,15 @@
         </nav>
         
         <div class="container">
-            <h1>Vendas</h1>
             <div><a href="../faces/index.xhtml">Página Inicial</a></div>
+            <h1>Vendas</h1>
+             <c:if test="${not empty vendaMB.mensagem}">
+                <div class="alert alert-primary" role="alert">
+                    #{itensVendaMB.mensagem}
+                    
+                    #{itensVendaMB.setMensagem("")}
+                </div>
+            </c:if>
             <h:form>
                 <h:dataTable value="#{vendaMB.getVendas()}" class="table" var="v">
                     <h:column>
@@ -40,9 +48,7 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">Ver itens</f:facet>
-                        <h:form>
-                            <h:commandLink value="Selecionar" action="#{itensVendaMB.getItens(v.id)}" />
-                        </h:form>
+                            <h:commandLink value="Selecionar" action="#{itensVendaMB.getItensVenda(v.id)}" />
                     </h:column>
                 </h:dataTable>
             </h:form>

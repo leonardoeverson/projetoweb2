@@ -9,6 +9,8 @@ import entidades.itensVenda;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -24,6 +26,16 @@ public class itensVendaManagedBean{
     private int vlTotal;
     private Date dtVenda;
     private List<itensVenda> itensVenda__;
+    private itensVenda itensvenda;
+    public String mensagem;
+     
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
     
     public int getIdUsuario() {
         return idUsuario;
@@ -49,13 +61,20 @@ public class itensVendaManagedBean{
         this.dtVenda = dtVenda;
     }
     
-    public List getItensVenda(int id){
-        List<itensVenda> itensvenda = new ArrayList<itensVenda>();
+    public String getItensVenda(int id){
         
+        itensvenda = null;
+        itensVendaDAO itensvendaDAO = new itensVendaDAO();
         
-        return itensvenda;
+        try {
+            itensvenda = itensvendaDAO.obter((int)id);
+        } catch (Exception ex) {
+            setMensagem("Erro:"+ ex);
+            Logger.getLogger(itensVendaManagedBean.class.getName()).log(Level.SEVERE, null, ex);
+            return "pfracasso";
+        }
         
-        
+        return "psucesso";    
     }
     
 }

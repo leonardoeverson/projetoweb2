@@ -26,4 +26,15 @@
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/vendas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>psucesso</from-outcome>
+            <to-view-id>/itens_venda.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>pfracasso</from-outcome>
+            <to-view-id>/vendas.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

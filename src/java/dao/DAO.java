@@ -74,7 +74,7 @@ public class DAO<E> {
         }
     }
 
-    public void remover(long id) throws Exception {
+    public void remover(int id) throws Exception {
         E entidade = obter(id);
         remover(entidade);
     }
@@ -99,7 +99,7 @@ public class DAO<E> {
         return resultado;
     }
 
-    public E obter(long id) throws Exception {
+    public E obter(int id) throws Exception {
         E entidade = null;
         Session session = util.HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
