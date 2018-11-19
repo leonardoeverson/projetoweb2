@@ -25,15 +25,14 @@ public class itensVendaManagedBean{
     private int idUsuario;
     private int vlTotal;
     private Date dtVenda;
-    private List<itensVenda> itensVenda__;
-    public itensVenda itensvenda;
+    public List<itensVenda> itensvenda;
     public String mensagem;
      
     public String getMensagem() {
         return mensagem;
     }
 
-    public itensVenda getItensvenda() {
+    public List getItensvenda() {
         return itensvenda;
     }
 
@@ -67,8 +66,7 @@ public class itensVendaManagedBean{
     
     public String getItensVenda(int id){
         
-        itensvenda = new itensVenda();
-        itensvenda.setIdVenda(id);
+        itensvenda = new ArrayList<itensVenda>();
         itensVendaDAO itensvendaDAO = new itensVendaDAO();
         
         try {

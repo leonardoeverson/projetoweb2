@@ -119,7 +119,7 @@ public class DAO<E> {
         return entidade;
     }
     
-     public E obter_id_espec(String query) throws Exception {
+     public List<E> obter_id_espec(String query) throws Exception {
         E entidade = null;
         List<E> resultado = null;
         Session session = util.HibernateUtil.getSessionFactory().openSession();
@@ -137,6 +137,7 @@ public class DAO<E> {
         } finally {
             session.close();
         }
-        return entidade;
+        
+        return resultado;
     }
 }
