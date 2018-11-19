@@ -127,7 +127,7 @@ public class DAO<E> {
         
         try {
             tx = session.beginTransaction();
-            resultado = session.createQuery(query).list();
+            resultado = session.createQuery("from " + classePersistente.getName() + query).list();
             tx.commit();
         } catch (Exception ex) {
             if (tx != null) {

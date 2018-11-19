@@ -72,7 +72,7 @@ public class itensVendaManagedBean{
         itensVendaDAO itensvendaDAO = new itensVendaDAO();
         
         try {
-            itensvenda = itensvendaDAO.obter((int)id);
+            itensvenda = itensvendaDAO.obter_id_espec(" where idVenda = "+id);
         } catch (Exception ex) {
             setMensagem("Erro:"+ ex);
             Logger.getLogger(itensVendaManagedBean.class.getName()).log(Level.SEVERE, null, ex);
