@@ -3,18 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/entidades/itensVenda.java</file>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/projeto/VendaManagedBean.java</file>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/entidades/Venda.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/projeto/ProdutoManagedBean.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/entidades/Produto.java</file>
-            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/dao/DAO.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/web/cadastro_venda.xhtml</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/dao/DAO.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/dao/ProdutoDAO.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/web/itens_venda.xhtml</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/dao/itensVendaDAO.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/dao/VendasDAO.java</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/web/index.xhtml</file>
             <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/web/WEB-INF/faces-config.xml</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/src/java/projeto/itensVendaManagedBean.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/NetBeansProjects/Projeto2/web/vendas.xhtml</file>
         </group>
     </open-files>
 </project-private>

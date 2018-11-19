@@ -8,6 +8,7 @@ package dao;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 /**
  *
@@ -106,6 +107,27 @@ public class DAO<E> {
         try {
             tx = session.beginTransaction();
             entidade = session.get(classePersistente, id);
+            tx.commit();
+        } catch (Exception ex) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            throw ex;
+        } finally {
+            session.close();
+        }
+        return entidade;
+    }
+    
+     public E obter_id_espec(String query) throws Exception {
+        E entidade = null;
+        List<E> resultado = null;
+        Session session = util.HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        
+        try {
+            tx = session.beginTransaction();
+            resultado = session.createQuery(query).list();
             tx.commit();
         } catch (Exception ex) {
             if (tx != null) {

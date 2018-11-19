@@ -26,11 +26,15 @@ public class itensVendaManagedBean{
     private int vlTotal;
     private Date dtVenda;
     private List<itensVenda> itensVenda__;
-    private itensVenda itensvenda;
+    public itensVenda itensvenda;
     public String mensagem;
      
     public String getMensagem() {
         return mensagem;
+    }
+
+    public itensVenda getItensvenda() {
+        return itensvenda;
     }
 
     public void setMensagem(String mensagem) {
@@ -63,7 +67,8 @@ public class itensVendaManagedBean{
     
     public String getItensVenda(int id){
         
-        itensvenda = null;
+        itensvenda = new itensVenda();
+        itensvenda.setIdVenda(id);
         itensVendaDAO itensvendaDAO = new itensVendaDAO();
         
         try {
