@@ -10,13 +10,14 @@ import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Produto implements Serializable{
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
     @Column(nullable = false)
@@ -40,7 +41,11 @@ public class Produto implements Serializable{
     public String getDtCadastro() {
         return dtCadastro.toString();
     }
-    
+
+    public void setDtCadastro(Timestamp dtCadastro) {
+        this.dtCadastro = dtCadastro;
+    }
+
     public int getId() {
         return id;
     }

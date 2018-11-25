@@ -59,4 +59,37 @@
             <to-view-id>/cadastro_usuario.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/cadastro_produto.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>sucesso</from-outcome>
+            <to-view-id>/cadastro_produto.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>fracasso</from-outcome>
+            <to-view-id>/cadastro_produto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/produtos.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>altera</from-outcome>
+            <to-view-id>/altera_produto.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>fracasso</from-outcome>
+            <to-view-id>/produtos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/altera_produto.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>fracasso</from-outcome>
+            <to-view-id>/altera_produto.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>sucesso</from-outcome>
+            <to-view-id>/produtos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

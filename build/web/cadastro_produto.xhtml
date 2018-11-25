@@ -14,36 +14,36 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">Cadastro de produto<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
         </nav>
         <div class="container-fluid">
             <h:form>
-		<h3>Login</h3>
-                <c:if test="${not empty usuarioMB.mensagem}">
+		<h3>Cadastro de produto</h3>
+                <c:if test="${not empty produtoMB.mensagem}">
                     <div class="alert alert-primary" role="alert">
-                        #{usuarioMB.mensagem}
+                        #{produtoMB.mensagem}
 
-                        #{usuarioMB.setMensagem("")}
+                        #{produtoMB.setMensagem("")}
                     </div>
                 </c:if>
-		<h:outputText value="Usuario" /><br></br>
-		<h:inputText id="nmUsuario" value="#{usuarioMB.nmUsuario}"></h:inputText>
-		<h:message for="nmUsuario"></h:message>
+		<h:outputText value="Nome do produto" /><br></br>
+		<h:inputText id="nmProduto" value="#{produtoMB.nmProduto}"></h:inputText>
+		<h:message for="nmProduto"></h:message>
 		<br></br><br></br>
 		
-		<h:outputText value="Senha" /><br></br>
-		<h:inputSecret id="senhaUsuario" value="#{usuarioMB.senhaUsuario}"></h:inputSecret>
-		<h:message for="senhaUsuario"></h:message>
+		<h:outputText value="Valor" /><br></br>
+		<h:inputText id="vlProduto" value="#{produtoMB.vlProduto}"></h:inputText>
+		<h:message for="vlProduto"></h:message>
 		<br></br><br></br>
 		
-		<h:commandButton action="#{usuarioMB.validarLogin}"
-			value="Login"></h:commandButton>
+		<h:commandButton action="#{produtoMB.cadastrarProduto}"
+			value="Cadastrar"></h:commandButton>
             </h:form>
             <br></br>
-            <h:link value="Cadastre-se" outcome="cadastro_usuario"/>
+            <h:link value="Voltar para o inicio" outcome="index"/>
         </div>
     </h:body>
 </html>
