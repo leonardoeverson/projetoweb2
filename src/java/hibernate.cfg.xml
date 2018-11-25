@@ -45,12 +45,13 @@ Contributor(s):
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">db_node_01#</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost/projeto2</property>
+    <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/projeto2</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
     <mapping class="entidades.Produto"/>
     <mapping class="entidades.itensVenda"/>
     <mapping class="entidades.Venda"/>
+    <mapping class="entidades.Usuario"/>
   </session-factory>
 </hibernate-configuration>

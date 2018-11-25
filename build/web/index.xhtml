@@ -25,6 +25,10 @@
             <h:link value="Cadastrar Venda" outcome="cadastro_venda"/>
             <br/>
             <h:link value="Vendas" outcome="vendas"/>
+            <br/>
+            <h:form>
+                <h:commandLink action="#{usuarioMB.logout}" value="Sair"></h:commandLink>
+            </h:form>
         </div>
     </h:body>
 </html>
