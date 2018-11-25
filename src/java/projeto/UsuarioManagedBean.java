@@ -9,6 +9,7 @@ import dao.UsuarioDAO;
 import entidades.Usuario;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -24,6 +25,7 @@ import util.SessionUtils;
 @SessionScoped
 public class UsuarioManagedBean {
     public List<Usuario> usuarios;
+    public Usuario usuarioConectado;
     
     private int id;
     private String nmUsuario;
@@ -60,6 +62,14 @@ public class UsuarioManagedBean {
     
     public int getId() {
         return id;
+    }
+
+    public Usuario getUsuarioConectado() {
+        return usuarioConectado;
+    }
+
+    public void setUsuarioConectado(Usuario usuarioConectado) {
+        this.usuarioConectado = usuarioConectado;
     }
     
     public String cadastrarUsuario(){
@@ -118,6 +128,59 @@ public class UsuarioManagedBean {
         HttpSession session = SessionUtils.getSession();
         session.invalidate();
         return "login";
+    }
+    
+    public Integer getIdUsuarioConectado() {
+        HttpSession session = SessionUtils.getSession();
+	return Integer.parseInt(session.getAttribute("idUsuario").toString());
+    }
+    
+    public List<Usuario> getInfoUsuarioConectado(){
+        UsuarioDAO usuDAO = new UsuarioDAO();        
+        try {
+            usuarioConectado = usuDAO.obter(getIdUsuarioConectado());  
+            usuarios = new ArrayList<Usuario>();
+            usuarios.add(usuarioConectado);
+        } catch (Exception ex) {
+            setMensagem("Erro ao obter informações!");
+        }     
+        return usuarios;
+    }
+    
+    public String excluirUsuario(int id){
+        UsuarioDAO usuDAO = new UsuarioDAO();          
+        try {
+            usuDAO.remover(id);           
+            return logout();
+        } catch (Exception ex) {
+            setMensagem("Houve um erro ao exluir o produto:"+ex);
+            return "fracasso";
+        }
+    }
+    
+    public String getUsuarioAlteracao(int id){              
+        try {
+            UsuarioDAO usuDAO = new UsuarioDAO(); 
+            usuarioConectado = usuDAO.obter(getIdUsuarioConectado());  
+            usuarioConectado.setSenhaUsuario("");
+            return "altera";
+        } catch (Exception ex) {           
+            setMensagem("Erro ao obter informações!");
+            return "fracasso";
+        }            
+    }
+    
+    public String alterarUsuario(){              
+        try {
+            UsuarioDAO usuDAO = new UsuarioDAO(); 
+            usuDAO.atualizar(usuarioConectado);
+        } catch (Exception ex) {
+            setMensagem("Erro ao alterar senha!");
+            return "fracasso";
+        }
+        
+        setMensagem("Senha alterada com sucesso!");
+        return "sucesso";
     }
    
 }
