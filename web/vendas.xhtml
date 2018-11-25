@@ -27,9 +27,7 @@
             <h1>Vendas</h1>
              <c:if test="${not empty vendaMB.mensagem}">
                 <div class="alert alert-primary" role="alert">
-                    #{itensVendaMB.mensagem}
-                    
-                    #{itensVendaMB.setMensagem("")}
+                    #{vendaMB.getMensagem()}
                 </div>
             </c:if>
             <h:form>
@@ -50,8 +48,13 @@
                         <f:facet name="header">Ver itens</f:facet>
                             <h:commandLink value="Selecionar" action="#{itensVendaMB.getItensVenda(v.id)}" />
                     </h:column>
+                    <h:column>
+                        <f:facet name="header">Excluir Venda</f:facet>
+                        <h:commandLink value="Selecionar" action="#{vendaMB.excluiVenda(v.id)}" />
+                    </h:column>
                 </h:dataTable>
             </h:form>
+            #{vendaMB.setMensagem("")}
         </div>
     </h:body>
 </html>

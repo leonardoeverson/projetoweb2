@@ -140,4 +140,24 @@ public class DAO<E> {
         
         return resultado;
     }
+     
+    public void remove_itens(String query){
+
+        Session session = util.HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        
+        try {
+            tx = session.beginTransaction();
+            Query q = session.createQuery("delete from "+ classePersistente.getName() +" where "+query);
+            q.executeUpdate();
+        } catch (Exception ex) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            throw ex;
+        } finally {
+            session.close();
+        }
+        
+    }
 }

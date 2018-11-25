@@ -32,9 +32,10 @@ public class VendaManagedBean {
   
     private int vlTotal;
     private String dtVenda;
-    public String mensagem;
+    private String mensagem;
     public double total = 0;
     public List<Produto> carrinho = new ArrayList<Produto>();
+    
     
     public VendaManagedBean(){
         carrinho = new ArrayList<Produto>();
@@ -55,7 +56,7 @@ public class VendaManagedBean {
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
     }
-     
+    
     public Integer getIdUsuario() {
         HttpSession session = SessionUtils.getSession();
 	return Integer.parseInt(session.getAttribute("idUsuario").toString());
@@ -170,7 +171,18 @@ public class VendaManagedBean {
     }
     
     
-    public void excluiVenda(){
+    public void excluiVenda(int id){
+        VendasDAO vendasDAO = new VendasDAO();
+        itensVendaDAO itensvendasDAO = new itensVendaDAO();
         
+        try {
+            vendasDAO.remover(id);
+            itensvendasDAO.remove_itens("idVenda="+id);
+            
+            setMensagem("registro excluído com sucesso");
+        } catch (Exception ex) {
+            setMensagem("Houve um erro ao exluir a venda:"+ex);
+            Logger.getLogger(VendaManagedBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
