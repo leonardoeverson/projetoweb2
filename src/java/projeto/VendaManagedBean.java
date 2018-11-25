@@ -18,6 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.servlet.http.HttpSession;
+import util.SessionUtils;
 
 /**
  *
@@ -28,7 +30,6 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class VendaManagedBean {
   
-    private int idUsuario;
     private int vlTotal;
     private String dtVenda;
     public String mensagem;
@@ -55,12 +56,9 @@ public class VendaManagedBean {
         this.mensagem = mensagem;
     }
      
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public Integer getIdUsuario() {
+        HttpSession session = SessionUtils.getSession();
+	return Integer.parseInt(session.getAttribute("idUsuario").toString());
     }
 
     public int getVlTotal() {
@@ -123,6 +121,7 @@ public class VendaManagedBean {
         
         Venda venda = new Venda();
         venda.setDtVenda(Timestamp.from(Instant.now()));
+        venda.setIdUsuario(getIdUsuario());
         venda.setVlTotal(total);
         
         VendasDAO vendasDAO = new VendasDAO();
@@ -162,11 +161,16 @@ public class VendaManagedBean {
         List<Venda> vendas = new ArrayList<Venda>();
         
         try {
-            vendas = vendasDAO.obterTodos();
+            vendas = vendasDAO.obter_id_espec(" where idUsuario="+ getIdUsuario());
         } catch (Exception ex) {
             Logger.getLogger(VendaManagedBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     
         return vendas;
+    }
+    
+    
+    public void excluiVenda(){
+        
     }
 }

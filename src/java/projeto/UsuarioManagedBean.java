@@ -25,10 +25,10 @@ import util.SessionUtils;
 public class UsuarioManagedBean {
     public List<Usuario> usuarios;
     
+    private int id;
     private String nmUsuario;
     private String senhaUsuario;
     private String mensagem;   
-    
     
     public String getMensagem() {
         return mensagem;
@@ -58,11 +58,16 @@ public class UsuarioManagedBean {
         return usuarios;
     }
     
+    public int getId() {
+        return id;
+    }
+    
     public String cadastrarUsuario(){
         Usuario usuario = new Usuario();
         usuario.setNmUsuario(this.getNmUsuario());
         usuario.setSenhaUsuario(this.getSenhaUsuario());
         usuario.setDtCadastro(Timestamp.from(Instant.now()));
+       
         
         setNmUsuario("");
         setSenhaUsuario("");
@@ -72,6 +77,7 @@ public class UsuarioManagedBean {
         
         try {
             usuarioDAO.inserir(usuario);
+            this.id = usuario.getId();
         } catch (Exception ex) {
             setMensagem("Erro ao cadastrar a venda: "+ex);
             return "fracasso";
@@ -92,6 +98,13 @@ public class UsuarioManagedBean {
             } else {
                 HttpSession session = SessionUtils.getSession();
 		session.setAttribute("usuario", this.getNmUsuario());
+                
+                for(Usuario u: usuarios){
+                    System.out.println(u.getId());
+                    if(u.getId() != 0){
+                        session.setAttribute("idUsuario", u.getId());
+                    }
+                }
                 return "sucesso";
             }          
         } catch (Exception ex) {

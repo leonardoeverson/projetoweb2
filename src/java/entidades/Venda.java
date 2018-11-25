@@ -29,6 +29,17 @@ public class Venda implements Serializable {
     @Column(nullable = false)
     private Timestamp dtVenda;
 
+    @Column(nullable = false)
+    private int idUsuario;
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+            
     public int getId() {
         return id;
     }
