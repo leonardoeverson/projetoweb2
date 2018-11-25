@@ -124,6 +124,7 @@ public class VendaManagedBean {
         venda.setDtVenda(Timestamp.from(Instant.now()));
         venda.setIdUsuario(getIdUsuario());
         venda.setVlTotal(total);
+        venda.setStEntrega("Não Entregue");
         
         VendasDAO vendasDAO = new VendasDAO();
         
@@ -182,6 +183,21 @@ public class VendaManagedBean {
             setMensagem("registro excluído com sucesso");
         } catch (Exception ex) {
             setMensagem("Houve um erro ao exluir a venda:"+ex);
+            Logger.getLogger(VendaManagedBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void confirmarEntrega(int id){        
+        try {
+            VendasDAO vendasDAO = new VendasDAO();
+            Venda v;
+            v = vendasDAO.obter(id);
+            v.setStEntrega("Entregue");
+            
+            vendasDAO.atualizar(v);          
+            setMensagem("Entrega confirmada para a venda " + v.getId());
+        } catch (Exception ex) {
+            setMensagem("Houve um erro ao confirma entrega:"+ex);
             Logger.getLogger(VendaManagedBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

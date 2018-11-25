@@ -44,6 +44,17 @@
                         <f:facet  name="header">Data da Venda</f:facet>  
                         #{v.dtVenda}
                     </h:column>
+                    
+                    <h:column>
+                        <f:facet  name="header">Status Entrega</f:facet>  
+                        #{v.stEntrega}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Confirmar Entrega</f:facet>
+                        <h:commandLink value="Selecionar" action="#{vendaMB.confirmarEntrega(v.id)}" />
+                    </h:column>
+
                     <h:column>
                         <f:facet name="header">Ver itens</f:facet>
                             <h:commandLink value="Selecionar" action="#{itensVendaMB.getItensVenda(v.id)}" />

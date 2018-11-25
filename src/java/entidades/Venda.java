@@ -31,6 +31,9 @@ public class Venda implements Serializable {
 
     @Column(nullable = false)
     private int idUsuario;
+    
+    @Column(nullable = false)
+    private String stEntrega;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -59,5 +62,14 @@ public class Venda implements Serializable {
     public void setVlTotal(double vlTotal) {
         this.vlTotal = vlTotal;
     }
+
+    public String getStEntrega() {
+        return stEntrega;
+    }
+
+    public void setStEntrega(String stEntrega) {
+        this.stEntrega = stEntrega;
+    }
+    
     
 }

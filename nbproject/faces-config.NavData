@@ -3,10 +3,15 @@
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
         <Node id="login.xhtml" x="257" y="-165" zoom="true"/>
-        <Node id="cadastro_venda.xhtml" x="400" y="150" zoom="true"/>
         <Node id="itens_venda.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="cadastro_venda.xhtml" x="400" y="150" zoom="true"/>
         <Node id="index.xhtml" x="92" y="197" zoom="true"/>
+        <Node id="altera_produto.xhtml" x="717" y="-84" zoom="true"/>
+        <Node id="produtos.xhtml" x="502" y="-134" zoom="true"/>
+        <Node id="cadastro_produto.xhtml" x="442" y="14" zoom="true"/>
+        <Node id="altera_senha.xhtml" x="10" y="-165" zoom="true"/>
         <Node id="cadastro_usuario.xhtml" x="132" y="326" zoom="true"/>
+        <Node id="minha_conta.xhtml" x="29" y="-22" zoom="true"/>
         <Node id="vendas.xhtml" x="76" y="473" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
